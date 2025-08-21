@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpyCode - Secret Message Encoder/Decoder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>🔒 Secret Message Encoder/Decoder</h1>
+    <p>Send your messages like a spy!</p>
+    <button onclick="scrollToTool()">Start Encoding Your Message</button>
+  </header>
+
+  <section class="intro">
+    <h2>What is this?</h2>
+    <p>Encode messages with a simple cipher and decode them back. 
+       Perfect for fun, puzzles, or learning the basics of secret codes!</p>
+  </section>
+
+  <section class="history">
+    <h2>Why were ciphers used?</h2>
+    <ul>
+      <li>🛡️ Julius Caesar used them for secret military messages.</li>
+      <li>📜 One of the earliest encryption methods.</li>
+      <li>🎓 Today, mainly educational or fun.</li>
+    </ul>
+  </section>
+
+  <section class="example">
+    <h2>Quick Example</h2>
+    <p><b>Original:</b> HELLO WORLD</p>
+    <p><b>Encoded (Shift 3):</b> KHOOR ZRUOG</p>
+    <p><b>Decoded:</b> HELLO WORLD</p>
+  </section>
+
+  <section class="features">
+    <h2>Features</h2>
+    <ul>
+      <li>🔐 Encode your secret messages.</li>
+      <li>🔓 Decode messages back to original.</li>
+      <li>📋 Copy/share your secrets.</li>
+      <li>⚙️ Adjustable shift value.</li>
+    </ul>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How does it work?</h2>
+    <p>This tool uses the <b>Caesar Cipher</b> method:</p>
+    <ul>
+      <li>Each letter is shifted by a number (called <b>Shift Value</b>).</li>
+      <li>Example: Shift = 3 → A → D, B → E, etc.</li>
+      <li>Decoding reverses the process.</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <button onclick="scrollToTool()">🚀 Try It Now</button>
+  </section>
+
+  <section id="tool" class="tool">
+    <h2>Secret Encoder/Decoder Tool</h2>
+    <textarea id="inputText" placeholder="Enter your message..."></textarea>
+    <input type="number" id="shift" value="3" min="1" max="25">
+    <div class="buttons">
+      <button onclick="encodeMessage()">Encode</button>
+      <button onclick="decodeMessage()">Decode</button>
+      <button onclick="copyText()">Copy</button>
+    </div>
+    <textarea id="outputText" placeholder="Result will appear here..." readonly></textarea>
+  </section>
+
+  <section class="tip">
+    <h2>💡 Spy Tip of the Day</h2>
+    <p id="spyTip"></p>
+  </section>
+
+  <footer>
+    <p>⚠️ Non-letter characters remain unchanged.</p>
+    <p>📚 This tool is for fun and learning, not secure communication.</p>
+    <p>Made with ❤️ by You</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
