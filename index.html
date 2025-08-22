@@ -1,88 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpyCode - Secret Message Encoder/Decoder</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpyCode — Secret Message Encoder/Decoder</title>
+  <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="Have fun encoding and decoding messages with a simple Caesar cipher. Learn how it works and try it instantly."/>
 </head>
 <body>
 
-  <header class="hero">
-    <h1>🔒 Secret Message Encoder/Decoder</h1>
-    <p>Send your messages like a spy!</p>
-    <button onclick="scrollToTool()">Start Encoding Your Message</button>
+  <header class="topbar">
+    <nav class="container nav">
+      <a class="brand" href="#">🔒 CRYPTI</a>
+      <ul class="nav-links">
+        <li><a href="#tool">Try It</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#use-cases">Why Ciphers?</a></li>
+      </ul>
+      <button class="btn primary" onclick="scrollToTool()">Get Started</button>
+    </nav>
   </header>
 
-  <section class="intro">
-    <h2>What is this?</h2>
-    <p>Encode messages with a simple cipher and decode them back. 
-       Perfect for fun, puzzles, or learning the basics of secret codes!</p>
-  </section>
+  
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Encrypt messages like a spy — in one click.</h1>
+        <p>Type your message, set a shift, and encode/decode instantly with the classic Caesar Cipher. Great for puzzles, classes, or just for fun.</p>
+        <div class="hero-actions">
+          <button class="btn primary" onclick="scrollToTool()">Start Encoding</button>
+          <a class="btn ghost" href="#how-it-works">Learn how it works</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="card mockup">
+          <div class="mockup-line">🎯 Your Mission</div>
+          <div class="mockup-line"> Type a message</div>
+                    <div class="mockup-line"> Pick a shift (1-25)</div>
+                              <div class="mockup-line"> Encode -> Share</div>
 
-  <section class="history">
-    <h2>Why were ciphers used?</h2>
-    <ul>
-      <li>🛡️ Julius Caesar used them for secret military messages.</li>
-      <li>📜 One of the earliest encryption methods.</li>
-      <li>🎓 Today, mainly educational or fun.</li>
-    </ul>
-  </section>
 
-  <section class="example">
-    <h2>Quick Example</h2>
-    <p><b>Original:</b> HELLO WORLD</p>
-    <p><b>Encoded (Shift 3):</b> KHOOR ZRUOG</p>
-    <p><b>Decoded:</b> HELLO WORLD</p>
-  </section>
-
-  <section class="features">
-    <h2>Features</h2>
-    <ul>
-      <li>🔐 Encode your secret messages.</li>
-      <li>🔓 Decode messages back to original.</li>
-      <li>📋 Copy/share your secrets.</li>
-      <li>⚙️ Adjustable shift value.</li>
-    </ul>
-  </section>
-
-  <section class="how-it-works">
-    <h2>How does it work?</h2>
-    <p>This tool uses the <b>Caesar Cipher</b> method:</p>
-    <ul>
-      <li>Each letter is shifted by a number (called <b>Shift Value</b>).</li>
-      <li>Example: Shift = 3 → A → D, B → E, etc.</li>
-      <li>Decoding reverses the process.</li>
-    </ul>
-  </section>
-
-  <section class="cta">
-    <button onclick="scrollToTool()">🚀 Try It Now</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="tool" class="tool">
-    <h2>Secret Encoder/Decoder Tool</h2>
-    <textarea id="inputText" placeholder="Enter your message..."></textarea>
-    <input type="number" id="shift" value="3" min="1" max="25">
-    <div class="buttons">
-      <button onclick="encodeMessage()">Encode</button>
-      <button onclick="decodeMessage()">Decode</button>
-      <button onclick="copyText()">Copy</button>
+    <div class="container">
+      <div class="section-head">
+        <h2>Secret Encoder/Decoder Tool</h2>
+        <p>Type your message, choose a shift (1–25), then Encode or Decode.</p>
+      </div>
+
+      <div class="tool-grid">
+        <div class="card input-card">
+          <label for="inputText" class="label">Your message</label>
+          <textarea id="inputText" placeholder="Enter your message..."></textarea>
+        </div>
+
+        <div class="card control-card">
+          <label for="shift" class="label">Shift value</label>
+          <input type="number" id="shift" value="3" min="1" max="25" />
+          <div class="hint">
+            <strong>What is shift?</strong> It’s how many positions each letter moves in the alphabet.
+            <div class="hint-example">Example: Shift 3 → A→D, B→E, C→F…</div>
+          </div>
+          <div class="buttons">
+            <button class="btn primary" onclick="encodeMessage()">Encode</button>
+            <button class="btn secondary" onclick="decodeMessage()">Decode</button>
+            <button class="btn ghost" onclick="copyText()">Copy</button>
+
+          </div>
+        </div>
+
+        <div class="card output-card">
+          <label for="outputText" class="label">Result</label>
+          <textarea id="outputText" placeholder="Your encoded/decoded text appears here..." readonly></textarea>
+          <p class="disclaimer">Non-letter characters remain unchanged.</p>
+        </div>
+      </div>
     </div>
-    <textarea id="outputText" placeholder="Result will appear here..." readonly></textarea>
   </section>
 
-  <section class="tip">
-    <h2>💡 Spy Tip of the Day</h2>
-    <p id="spyTip"></p>
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <h2>How does it work?</h2>
+        <p>Crypti uses the classic <strong>Caesar Cipher</strong> — a simple substitution that rotates letters by a fixed amount.</p>
+      </div>
+
+      <div class="cards-grid three">
+        <div class="card step-card">
+          <div class="step">1</div>
+          <h3>Pick a Shift</h3>
+          <p>Set a number from <strong>1–25</strong>. This is how many positions each letter will move. Shift 3 turns A→D, B→E, C→F, and so on.</p>
+        </div>
+        <div class="card step-card">
+          <div class="step">2</div>
+          <h3>Click Encode</h3>
+          <p>We take each letter in your message and move it forward by your chosen shift. Example: <code>HELLO</code> (Shift 3) becomes <code>KHOOR</code>.</p>
+        </div>
+        <div class="card step-card">
+          <div class="step">3</div>
+          <h3>Click Decode</h3>
+          <p>Have an encoded message? Paste it, set the correct shift, and hit Decode. We move letters backward to reveal the original text.</p>
+        </div>
+      </div>
+
+      <div class="example-row card">
+        <div class="example-col">
+          <p><strong>Original:</strong> HELLO WORLD</p>
+          <p><strong>Encoded (Shift 3):</strong> KHOOR ZRUOG</p>
+          <p><strong>Decoded:</strong> HELLO WORLD</p>
+        </div>
+        <div class="example-col">
+          <p><strong>Good to know:</strong></p>
+          <ul class="bullets">
+            <li>Spaces, punctuation, and numbers stay the same.</li>
+            <li>Uppercase/lowercase can be preserved via script logic.</li>
+            <li>This is for education/fun — not cryptographically secure.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>⚠️ Non-letter characters remain unchanged.</p>
-    <p>📚 This tool is for fun and learning, not secure communication.</p>
-    <p>Made with ❤️ by You</p>
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-head">
+        <h2>Features you’ll love</h2>
+        <p>Clean UI, instant results, and share-ready output.</p>
+      </div>
+
+      <div class="cards-grid four">
+        <div class="card feature-card">
+          <h3>🔐 One-click Encode</h3>
+          <p>Turn plain text into cipher text instantly.</p>
+        </div>
+        <div class="card feature-card">
+          <h3>🔓 One-click Decode</h3>
+          <p>Reverse the cipher and get the original message back.</p>
+        </div>
+        <div class="card feature-card">
+          <h3>⚙️ Adjustable Shift</h3>
+          <p>Choose any rotation from 1–25 to match your puzzle.</p>
+        </div>
+        <div class="card feature-card">
+          <h3>📋 Quick Copy</h3>
+          <p>Copy results in a tap to share with friends or classmates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="use-cases" class="history">
+    <div class="container">
+      <div class="section-head">
+        <h2>Why were ciphers used?</h2>
+        <p>A bite-sized history and modern uses.</p>
+      </div>
+
+      <div class="cards-grid three">
+        <div class="card mini-card">
+          <h3>🛡️ Ancient Strategy</h3>
+          <p>Julius Caesar used substitution ciphers to protect military messages.</p>
+        </div>
+        <div class="card mini-card">
+          <h3>📜 Early Encryption</h3>
+          <p>Among the earliest known methods for hiding information in plain sight.</p>
+        </div>
+        <div class="card mini-card">
+          <h3>🎓 Today’s Role</h3>
+          <p>Great for teaching cryptography basics, puzzles, and playful secrecy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-inner card">
+      <h2>Ready to send your first secret?</h2>
+      <p>Set a shift, encode your message, and share the fun.</p>
+      <button class="btn primary" onclick="scrollToTool()">🚀 Try It Now</button>
+    </div>
+  </section>
+
+  
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="foot-left">
+        <p>© <span id="year"></span> Crypti — Made by Adina Hawaldar</p>
+        <p class="muted">Whisper your words in code, let only the chosen decode.</p>
+      </div>
+      <div class="foot-right">
+        <a href="#tool" class="btn ghost">Open Tool</a>
+      </div>
+    </div>
   </footer>
 
+  
   <script src="script.js"></script>
 </body>
 </html>
